@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="viewport" content = "width = device-width, initial-scale = 1, user-scalable = no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="apple-touch-icon" href="img/icon.png"/>
+	
+		<title>Twitter</title>
+		<style type="text/css">
+			html,
+			body {
+				height: 100%;
+			}
+
+			body {
+				margin: 0;
+				background-size: 100% 100%;
+			}
+
+			@media (orientation:portrait){
+				body {
+					background: url('img/bg-p.png') no-repeat;
+				}
+			}
+
+			@media (orientation:landscape){
+				body {
+					background: url('img/bg-l.png') no-repeat;
+				}
+			}
+		</style>
+	</head>
+	<body onload="init()">
+		<audio src="media/siren.wav" id="siren"></audio>
+		<script>
+			var
+				siren = document.getElementById('siren'),
+				body = document.body
+			;
+			function init(){
+				body.addEventListener('touchstart', function(){
+					siren.play();
+				});
+				body.addEventListener('touchmove', function(e){
+					e.preventDefault();
+				});
+			}
+		</script>
+	</body>
+</html>
